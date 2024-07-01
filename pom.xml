@@ -16,6 +16,11 @@
     </properties>
     <dependencies>
         <dependency>
+            <groupId>com.microsoft.playwright</groupId>
+            <artifactId>playwright</artifactId>
+            <version>1.44.0</version>
+        </dependency>
+        <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
             <artifactId>selenium-java</artifactId>
             <version>4.21.0</version>
@@ -41,7 +46,6 @@
             <artifactId>log4j-slf4j-impl</artifactId>
             <version>2.20.0</version>
         </dependency>
-
         <dependency>
             <groupId>org.hamcrest</groupId>
             <artifactId>hamcrest</artifactId>
@@ -74,9 +78,9 @@
             <version>2.9.0</version>
         </dependency>
         <dependency>
-            <groupId>io.qameta.allure</groupId>
-            <artifactId>allure-testng</artifactId>
-            <version>2.13.9</version>
+            <groupId>com.codeborne</groupId>
+            <artifactId>selenide</artifactId>
+            <version>7.3.1</version>
         </dependency>
     </dependencies>
     <build>
@@ -115,7 +119,6 @@
                         <version>${aspectj.version}</version>
                     </dependency>
                 </dependencies>
-
             </plugin>
             <plugin>
                 <groupId>io.qameta.allure</groupId>
@@ -125,12 +128,6 @@
                     <reportVersion>2.10.0</reportVersion>
                 </configuration>
             </plugin>
-            <plugin>
-                <groupId>io.qameta.allure</groupId>
-                <artifactId>allure-maven</artifactId>
-                <version>2.10.0</version>
-            </plugin>
         </plugins>
-
     </build>
 </project>
