@@ -1,3 +1,4 @@
+import org.example.BaseTest;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
@@ -12,7 +13,7 @@ import java.util.regex.Pattern;
 
 
 public class priority1 extends BaseTest {
-    private SmartphonesCategoryPage smartphonesCategoryPage;
+
     @Test(priority = 1, groups = "FirstPriority") //TC_1
     public void addProductToCart() {
         driver.manage().window().maximize();
@@ -55,11 +56,11 @@ public class priority1 extends BaseTest {
         int kodNumber2 = Integer.parseInt(numericValue);
 
         Assert.assertEquals(kodNumber, kodNumber2, "Elements do not match");
-
     }
 
     @Test(priority = 2, groups = "FirstPriority", dependsOnMethods = "addProductToCart") //TC_2
     public void testRemoveProductFromCart() {
+
         WebElement cartSection = driver.findElement(By.xpath("(//div[@class='ui-library-container-8246'])[3]"));
         cartSection.click();
 
@@ -69,6 +70,7 @@ public class priority1 extends BaseTest {
 
         WebElement emptyCartMessage = driver.findElement(By.xpath("//div[contains(@class, 'notification-success') and contains(@class, 'notification-hidden')]"));
         Assert.assertTrue(emptyCartMessage.isDisplayed(), "Товар не удалён из корзины.");
+        driver.quit();
     }
 
     @Test(groups = "FirstPriority")  //TC_4
@@ -101,7 +103,7 @@ public class priority1 extends BaseTest {
     public void testProductsDisplayed() {
         driver.manage().window().maximize();
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        smartphonesCategoryPage = new SmartphonesCategoryPage(driver);
+        SmartphonesCategoryPage smartphonesCategoryPage = new SmartphonesCategoryPage(driver);
 
         smartphonesCategoryPage.goToSmartphonesCategory();
         smartphonesCategoryPage.goToSmartphonesSection();
@@ -117,6 +119,6 @@ public class priority1 extends BaseTest {
             System.out.println("Product name: " + productName);
             Assert.assertTrue(productName.contains(keyword), "Продукт '" + productName + "' не содержит ключевое слово '" + keyword + "'.");
         }
-
     }
+
 }

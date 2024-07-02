@@ -1,3 +1,4 @@
+import org.example.BaseTest;
 import org.openqa.selenium.By;
 import java.util.Set;
 import org.openqa.selenium.WebElement;
@@ -87,7 +88,6 @@ public class priority2 extends BaseTest {
         List<WebElement> priceElementsAsc = wait.until(ExpectedConditions.visibilityOfAllElementsLocatedBy(By.xpath("//div[@class='Pricestyled__StyledCurrentPrice-sc-vfsrh8-4 jUqRwo']")));
         List<Integer> pricesAsc = extractPrices(priceElementsAsc);
         Assert.assertTrue(isSorted(pricesAsc, true), "Товары не отсортированы по возрастанию цены.");
-
         sortAscending.click();
         delay(2000);
 
