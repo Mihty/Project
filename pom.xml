@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>org.example</groupId>
-    <artifactId>Automation</artifactId>
+    <artifactId>Project</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
@@ -14,6 +14,7 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <aspectj.version>1.9.21</aspectj.version>
     </properties>
+
     <dependencies>
         <dependency>
             <groupId>com.microsoft.playwright</groupId>
@@ -83,6 +84,7 @@
             <version>7.3.1</version>
         </dependency>
     </dependencies>
+
     <build>
         <plugins>
             <plugin>
@@ -107,9 +109,8 @@
                         </property>
                     </systemProperties>
                     <suiteXmlFiles>
-                        <suiteXmlFile>
-                            FirstPriority.xml
-                        </suiteXmlFile>
+                        <suiteXmlFile>FirstPriority.xml</suiteXmlFile>
+                        <suiteXmlFile>SecondPriority.xml</suiteXmlFile>
                     </suiteXmlFiles>
                 </configuration>
                 <dependencies>

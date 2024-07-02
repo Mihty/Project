@@ -9,14 +9,10 @@ import java.time.Duration;
 import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import io.qameta.allure.Attachment;
-import org.openqa.selenium.OutputType;
-import org.openqa.selenium.TakesScreenshot;
 
 
 public class priority1 extends BaseTest {
     private SmartphonesCategoryPage smartphonesCategoryPage;
-
     @Test(priority = 1, groups = "FirstPriority") //TC_1
     public void addProductToCart() {
         driver.manage().window().maximize();
@@ -59,8 +55,7 @@ public class priority1 extends BaseTest {
         int kodNumber2 = Integer.parseInt(numericValue);
 
         Assert.assertEquals(kodNumber, kodNumber2, "Elements do not match");
-        ScreenshotUtils screenshotUtils = new ScreenshotUtils(driver);
-        screenshotUtils.takeScreenshot();
+
     }
 
     @Test(priority = 2, groups = "FirstPriority", dependsOnMethods = "addProductToCart") //TC_2

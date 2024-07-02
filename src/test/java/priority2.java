@@ -56,16 +56,6 @@ public class priority2 extends BaseTest {
         return allPricesInRange;
     }
 
-    // Метод для проверки сортировки по количеству отзывов
-    private boolean isSortedByReviews(List<Integer> reviewCounts, boolean ascending) {
-        List<Integer> sortedReviewCounts = new ArrayList<>(reviewCounts);
-        if (ascending) {
-            Collections.sort(sortedReviewCounts);
-        } else {
-            sortedReviewCounts.sort(Collections.reverseOrder());
-        }
-        return reviewCounts.equals(sortedReviewCounts);
-    }
 
     // Метод для установки ценового диапазона
     private void setPriceFilter(int minPrice, int maxPrice) {
@@ -150,12 +140,11 @@ public class priority2 extends BaseTest {
         WebElement product  = driver.findElement(By.xpath("//span[contains(@class, 'ui-library-body2Medium') and contains(@class, 'GoodsDescriptionstyled__StyledTypography-sc-1c1eyhs-1') and contains(@class, 'bDXGew')]"));
         product.click();
 
+        delay(2000);
         ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 1000);");
 
         WebElement searchBox = new WebDriverWait(driver, Duration.ofSeconds(15))
                 .until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@class='eldo-input'])[2]")));
-        searchBox.clear();
-        searchBox.sendKeys("Київ");
         delay(2000);
 
         WebElement item = driver.findElement(By.xpath("//div[@class='shop-item-container shop-item-container-row']"));
