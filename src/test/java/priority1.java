@@ -56,6 +56,8 @@ public class priority1 extends BaseTest {
         int kodNumber2 = Integer.parseInt(numericValue);
 
         Assert.assertEquals(kodNumber, kodNumber2, "Elements do not match");
+        ScreenshotUtils screenshotUtils = new ScreenshotUtils(driver);
+        screenshotUtils.takeScreenshot();
     }
 
     @Test(priority = 2, groups = "FirstPriority", dependsOnMethods = "addProductToCart") //TC_2
@@ -70,7 +72,9 @@ public class priority1 extends BaseTest {
 
         WebElement emptyCartMessage = driver.findElement(By.xpath("//div[contains(@class, 'notification-success') and contains(@class, 'notification-hidden')]"));
         Assert.assertTrue(emptyCartMessage.isDisplayed(), "Товар не удалён из корзины.");
-        driver.quit();
+        ScreenshotUtils screenshotUtils = new ScreenshotUtils(driver);
+        screenshotUtils.takeScreenshot();
+
     }
 
     @Test(groups = "FirstPriority")  //TC_4
