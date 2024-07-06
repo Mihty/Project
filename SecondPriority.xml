@@ -1,6 +1,6 @@
 <!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
-<suite name="Negative Tests">
-    <test name="Negative Tests">
+<suite name="Positive Tests">
+    <test name="Positive  Tests">
         <groups>
             <run>
                 <include name ="SecondPriority"/>

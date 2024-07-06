@@ -17,14 +17,14 @@ public class BaseTest {
             e.printStackTrace();
         }
     }
-    @BeforeClass
+    @BeforeMethod(alwaysRun = true)
     public void setUp() {
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
         driver.get("https://eldorado.ua/uk/");
 
     }
-    @AfterClass
+    @AfterMethod(alwaysRun = true)
     public void tearDown() {
         if (driver != null) {
             driver.quit();

@@ -1,4 +1,5 @@
 import org.example.BaseTest;
+import org.example.SmartphonesCategoryPage;
 import org.openqa.selenium.By;
 import java.util.Set;
 import org.openqa.selenium.WebElement;
@@ -126,32 +127,6 @@ public class priority2 extends BaseTest {
 
     }
 
-    @Test(groups = "SecondPriority") // Поиск по городу "Киев" //TC_12
-    public void filterByCity() {
-        driver.manage().window().maximize();
-        smartphonesCategoryPage = new SmartphonesCategoryPage(driver);
-
-        smartphonesCategoryPage.goToSmartphonesCategory();
-        smartphonesCategoryPage.goToSmartphonesSection();
-
-        WebElement citySelector = driver.findElement(By.xpath("//label[contains(@class, 'ui-library-checkboxContainer-f46a') and contains(@class, 'FilterOptionGroupstyles__StyledCheckboxFilter-sc-cb09jd-1') and contains(@class, 'hXufCq')]//p[contains(text(), 'Київ')]"));
-        citySelector.click();
-
-        WebElement product  = driver.findElement(By.xpath("//span[contains(@class, 'ui-library-body2Medium') and contains(@class, 'GoodsDescriptionstyled__StyledTypography-sc-1c1eyhs-1') and contains(@class, 'bDXGew')]"));
-        product.click();
-
-        delay(2000);
-        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 1000);");
-
-        WebElement searchBox = new WebDriverWait(driver, Duration.ofSeconds(15))
-                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@class='eldo-input'])[2]")));
-        delay(2000);
-
-        WebElement item = driver.findElement(By.xpath("//div[@class='shop-item-container shop-item-container-row']"));
-        Assert.assertTrue(item .isDisplayed(), "Сортировка неправильная.");
-
-    }
-
     @Test(groups = "SecondPriority") //TC_11
     public void filterBySelectedPrice() {
         driver.manage().window().maximize();
@@ -184,11 +159,9 @@ public class priority2 extends BaseTest {
 
         wait.until(ExpectedConditions.numberOfWindowsToBe(2));
 
-        // Получаем идентификаторы всех открытых вкладок
         Set<String> windowHandles = driver.getWindowHandles();
         String currentHandle = driver.getWindowHandle();
 
-        // Переключаемся на новую вкладку
         String newHandle = "";
         for (String handle : windowHandles) {
             if (!handle.equals(currentHandle)) {
@@ -201,6 +174,31 @@ public class priority2 extends BaseTest {
 
         String currentUrl = driver.getCurrentUrl();
         Assert.assertTrue(currentUrl.contains("facebook.com/eldorado.ua"), "Не произошел корректный переход на страницу Facebook.");
+
+    }
+    @Test(groups = "SecondPriority") // Поиск по городу "Киев" //TC_12
+    public void filterByCity() {
+        driver.manage().window().maximize();
+        smartphonesCategoryPage = new SmartphonesCategoryPage(driver);
+
+        smartphonesCategoryPage.goToSmartphonesCategory();
+        smartphonesCategoryPage.goToSmartphonesSection();
+
+        WebElement citySelector = driver.findElement(By.xpath("//label[contains(@class, 'ui-library-checkboxContainer-f46a') and contains(@class, 'FilterOptionGroupstyles__StyledCheckboxFilter-sc-cb09jd-1') and contains(@class, 'hXufCq')]//p[contains(text(), 'Київ')]"));
+        citySelector.click();
+
+        WebElement product  = driver.findElement(By.xpath("//span[contains(@class, 'ui-library-body2Medium') and contains(@class, 'GoodsDescriptionstyled__StyledTypography-sc-1c1eyhs-1') and contains(@class, 'bDXGew')]"));
+        product.click();
+
+        delay(2000);
+        ((JavascriptExecutor) driver).executeScript("window.scrollBy(0, 5000);");
+
+        WebElement searchBox = new WebDriverWait(driver, Duration.ofSeconds(15))
+                .until(ExpectedConditions.presenceOfElementLocated(By.xpath("(//input[@class='eldo-input'])[2]")));
+        delay(2000);
+
+        WebElement item = driver.findElement(By.xpath("//div[@class='shop-item-container shop-item-container-row']"));
+        Assert.assertTrue(item .isDisplayed(), "Сортировка неправильная.");
 
     }
     @Test(groups = "SecondPriority") //TC_15 //по производителю APPLE

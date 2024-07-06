@@ -1,18 +1,15 @@
-import io.qameta.allure.testng.AllureTestNg;
-import org.example.BaseTest;
+package org.example;
+
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
-import org.testng.annotations.Listeners;
-
 import java.time.Duration;
 
-
 public class SmartphonesCategoryPage extends BaseTest {
-
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     // Локаторы элементов на странице смартфонов
     @FindBy(xpath = "(//a[@class='ui-library-action-80bf ui-library-actionLink-ec77 ui-library-blue06-ad90 MainCategoryLinkstyled__StyledMainCategoryLink-sc-10xbzrt-0 btWqlP'])[1]")
