@@ -20,8 +20,6 @@ public class BaseTest {
     }
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
-        ChromeOptions options = new ChromeOptions();
-        options.addArguments("--disable-gpu");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
         driver.get("https://eldorado.ua/uk/");
