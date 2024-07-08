@@ -2,6 +2,7 @@ package org.example;
 import io.qameta.allure.testng.AllureTestNg;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.testng.annotations.*;
 import java.time.Duration;
 
@@ -19,6 +20,8 @@ public class BaseTest {
     }
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
+        ChromeOptions options = new ChromeOptions();
+        options.addArguments("--disable-gpu");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
         driver.get("https://eldorado.ua/uk/");
