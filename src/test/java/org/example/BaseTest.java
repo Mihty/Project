@@ -28,7 +28,6 @@ public class BaseTest {
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
         driver = new ChromeDriver(options);
-        options.addArguments("--disable-gpu");
         options.addArguments("--headless");
         options.addArguments("--window-size=1920,1080");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
