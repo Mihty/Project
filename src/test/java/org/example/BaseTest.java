@@ -10,6 +10,7 @@ import java.time.Duration;
 public class BaseTest {
     protected WebDriver driver;
     ChromeOptions options = new ChromeOptions();
+
     //Метод для добавления задержки
     public void delay(int milliseconds) {
         try {
@@ -22,7 +23,10 @@ public class BaseTest {
     public void setUp() {
         driver = new ChromeDriver(options);
         options.addArguments("--disable-gpu");
+        options.addArguments("--headless");
+        options.addArguments("--window-size=1920,1080");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+
         driver.get("https://eldorado.ua/uk/");
 
     }
