@@ -25,7 +25,7 @@ public class BaseTest {
         options.addArguments("--disable-gpu");
         options.addArguments("--headless");
         options.addArguments("--window-size=1920,1080");
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.get("https://eldorado.ua/uk/");
 
