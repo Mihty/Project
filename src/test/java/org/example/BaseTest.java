@@ -19,6 +19,12 @@ public class BaseTest {
             e.printStackTrace();
         }
     }
+
+    @BeforeSuite(alwaysRun = true)
+    public void setupSuite() {
+        System.setProperty("webDriver.chrome.driver", "C:/Program Files/Google/Chrome/Application/chrome.exe");
+    }
+
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
         driver = new ChromeDriver(options);
