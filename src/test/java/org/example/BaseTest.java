@@ -9,7 +9,7 @@ import java.time.Duration;
 @Listeners(AllureTestNg.class)
 public class BaseTest {
     protected WebDriver driver;
-
+    ChromeOptions options = new ChromeOptions();
     //Метод для добавления задержки
     public void delay(int milliseconds) {
         try {
@@ -20,7 +20,8 @@ public class BaseTest {
     }
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
-        driver = new ChromeDriver();
+        driver = new ChromeDriver(options);
+        options.addArguments("--disable-gpu");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(100));
         driver.get("https://eldorado.ua/uk/");
 
