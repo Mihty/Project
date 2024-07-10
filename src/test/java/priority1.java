@@ -13,7 +13,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class priority1 extends BaseTest {
-
     @Test( groups = "FirstPriority") //TC_1
     public void addProductToCart() {
         driver.manage().window().maximize();

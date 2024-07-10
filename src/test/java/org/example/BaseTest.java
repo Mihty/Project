@@ -9,9 +9,7 @@ import java.time.Duration;
 @Listeners(AllureTestNg.class)
 public class BaseTest {
     protected WebDriver driver;
-    ChromeOptions options = new ChromeOptions();
 
-    //Метод для добавления задержки
     public void delay(int milliseconds) {
         try {
             Thread.sleep(milliseconds);
@@ -19,7 +17,6 @@ public class BaseTest {
             e.printStackTrace();
         }
     }
-
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
         driver = new ChromeDriver();
