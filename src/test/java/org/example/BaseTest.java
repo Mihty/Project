@@ -20,16 +20,9 @@ public class BaseTest {
         }
     }
 
-    @BeforeSuite(alwaysRun = true)
-    public void setupSuite() {
-        System.setProperty("webDriver.chrome.driver", "C:/Program Files/Google/Chrome/Application/chrome.exe");
-    }
-
     @BeforeMethod(alwaysRun = true)
     public void setUp() {
-        driver = new ChromeDriver(options);
-        options.addArguments("--headless");
-        options.addArguments("--window-size=1920,1080");
+        driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
         driver.get("https://eldorado.ua/uk/");
@@ -42,4 +35,3 @@ public class BaseTest {
         }
     }
 }
-

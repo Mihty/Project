@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 
 public class SmartphonesCategoryPage extends BaseTest {
+
     WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
     // Локаторы элементов на странице смартфонов
     @FindBy(xpath = "(//a[@class='ui-library-action-80bf ui-library-actionLink-ec77 ui-library-blue06-ad90 MainCategoryLinkstyled__StyledMainCategoryLink-sc-10xbzrt-0 btWqlP'])[1]")
