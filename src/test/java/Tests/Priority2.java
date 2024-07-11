@@ -127,7 +127,7 @@ public class Priority2 extends BaseTest {
 
         int kodNumber2 = Integer.parseInt(KodTovaru2);
 
-        Assert.assertEquals(kodNumber, kodNumber2, "Elements do not match");
+        Assert.assertEquals(kodNumber, kodNumber2, "Элементы не найдены");
 
     }
 

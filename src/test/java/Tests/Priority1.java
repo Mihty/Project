@@ -30,7 +30,7 @@ public class Priority1 extends BaseTest {
 
         }
         else{
-            System.out.println("Значення пусте");
+            System.out.println("Значение пустое");
         }
         int NumericKodItem = Integer.parseInt(numericValue);
         delay(2000);
@@ -52,11 +52,11 @@ public class Priority1 extends BaseTest {
             numericValue = matcher.group();
         }
         else{
-            System.out.println("Значення пусте");
+            System.out.println("Значение пустое");
         }
         int NumericKodItem2 = Integer.parseInt(numericValue);
 
-        Assert.assertEquals(NumericKodItem, NumericKodItem2, "Elements do not match");
+        Assert.assertEquals(NumericKodItem, NumericKodItem2, "Элементы не найдены");
 
     }
 
