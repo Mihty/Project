@@ -7,7 +7,7 @@
             </run>
         </groups>
         <classes>
-            <class name="priority1"/>
+            <class name="Tests.Priority1"/>
         </classes>
     </test>
 </suite>
